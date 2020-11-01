@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kaks.io's cat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <!-- Vue.js script below -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</head>
+
+<body>
+    <div class="page" id="app">
+        <h1>Ugly responsive layout</h1>
+        <div :style="{display: display}" class="loader-hover">
+            <div id="loader"></div>
+        </div>
+        <div class="flex-container">
+            <div v-for="(cat, index) in cats" class="cat-div" :key="index">
+                <div class="cat-img" :style="{ backgroundImage: 'url(' + cat.img + ')' }"></div>
+                <!-- Uncomment the 3 lines bellow and comment 1 line above to see the original idea of cat image  -->
+                <!-- <div class="cat-ori-hover" :style="{ height: imageHeight }" >
+                    <img :src="cat.img" alt="" class="cat-img-ori" ref="catImage">
+                </div> -->
+                <div :style="{ height: headingHeight }" class="name-hover" ref="nameHover">
+                    <h2>{{cat.name}}</h2>
+                </div>
+                <p>{{cat.description}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
