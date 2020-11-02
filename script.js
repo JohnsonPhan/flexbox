@@ -2,7 +2,8 @@ const vm = new Vue({
     el: "#app",
     async mounted() {
         await this.setHeight();
-        // await this.imgHeight();
+        // If html using img tag, use the function bellow
+        // await this.imgHeight(); 
         this.changeWidthListen();
     },
     data() {
@@ -50,23 +51,24 @@ const vm = new Vue({
         },
 
         // Handle same height of img tag in original idea
-        // async imgHeight() {
-        //     let self = this;
-        //     setTimeout(async () => {
-        //         let heights = this.$refs.catImage;
-        //         console.log(heights);
-        //         heights.forEach(height => {
-        //             let currentHeight = height.clientHeight
-        //             if (currentHeight > self.imageHeight || !self.imageHeight || this.imageHeight == 'unset') self.imageHeight = currentHeight
-        //         });
-        //         self.imageHeight += 'px';
-        //     }, 50);
-        // },
+        async imgHeight() {
+            let self = this;
+            setTimeout(async () => {
+                let heights = this.$refs.catImage;
+                console.log(heights);
+                heights.forEach(height => {
+                    let currentHeight = height.clientHeight
+                    if (currentHeight > self.imageHeight || !self.imageHeight || this.imageHeight == 'unset') self.imageHeight = currentHeight
+                });
+                self.imageHeight += 'px';
+            }, 50);
+        },
 
         async changeWidthListen() {
             window.addEventListener('resize', this.changeWidthHandle);
         },
         changeWidthHandle() {
+            // Function only need to handle for screen bigger than phones
             if (window.innerWidth > 426) {
                 this.setHeight();
                 // This code below to show the loading screen when JS processing
