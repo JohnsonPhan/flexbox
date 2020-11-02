@@ -67,14 +67,16 @@ const vm = new Vue({
             window.addEventListener('resize', this.changeWidthHandle);
         },
         changeWidthHandle() {
-            this.setHeight();
-            // This code below to show the loading screen when JS processing
-            // Comment those to see how change screen height work 
-            this.display = "block";
-            let self = this;
-            setTimeout(() => {
-                self.display = "none";
-            }, 1000);
+            if (window.innerWidth > 426) {
+                this.setHeight();
+                // This code below to show the loading screen when JS processing
+                // Comment those to see how change screen height work 
+                this.display = "block";
+                let self = this;
+                setTimeout(() => {
+                    self.display = "none";
+                }, 1000);
+            }
         }
     },
 })
