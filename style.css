@@ -73,29 +73,16 @@ img.cat-img-ori {
     width: 100%;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 1s;
-}
-
-.fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active below version 2.1.8 */
-    {
-    opacity: 0;
-}
-
-/* Handle two columns in screen width = 900px (3 columns begin to look bad) */
+/* When screen width equal or smaller than 900px, change amount of columns to 2. (3 columns begin to look bad) */
 @media (max-width: 900px) {
     .cat-div {
-        flex: 0 48%;
-        margin-bottom: 2%;
+        flex: 0 45%;
+        margin-bottom: 5%;
     }
 }
 
-/* Handle for Tablets */
-@media (max-width: 768px) {
+/* If screen size smaller than iPad, change amount of columns to 1. */
+@media (max-width: 767px) {
     .cat-div {
         flex: 0 100%;
     }
