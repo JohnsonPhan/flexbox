@@ -28,7 +28,7 @@ const vm = new Vue({
                 },
                 {
                     name: "John",
-                    description: "I just don't want to open my eyes. I don't want to talk with Human",
+                    description: "I am a white cat. My eyes yellow",
                     img: "assets/john.jpg"
                 },
             ]
